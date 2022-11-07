@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0; 
+}
+
+body{
+    background-image: url('https://cache.marriott.com/content/dam/marriott-renditions/USMSS/usmss-talay-restaurant-7266-hor-clsc.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=1846px:*');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.header-part{
+    height: 80px;
+    background-color: rgba(174, 214, 241, 0.8);
+}
+
+li, a ,button{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+
+header{
+    display: flex;
+    /* justify-content: space-between; */
+    justify-content: flex-end;
+    align-items: center;
+    padding: 30px 10%;
+}
+
+.logo{
+    cursor: pointer;
+    margin-right: auto;
+    color: #154360;
+    font-size: 50px;
+    font-family: "Dancing script", cursive;
+    margin-top: -10px;
+    
+}
+
+.nav_links{
+    list-style: none;
+}
+
+.nav_links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav_links a{
+    transition: all 0.3s ease 0s;
+    color: #5D6D7E;
+    
+}
+
+.nav_links li a:hover{
+    color: blue;
+    background-color: rgba(171, 178, 185, 0.8);
+    border-radius: 7px;
+}
+
+button{
+    padding: 9px 25px;
+    background-color: rgba(0,136,169,1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover{
+    background-color: rgba(0,136,169,0.8);
+}
+
+@media screen and (max-width:575px){
+    .header-part{
+        height: 140px;
+    }
+
+}
+
+.background-part{
+    width: 100%;
+    height:665px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* for popup startup*/
+
+
+#head2{
+    font-size: 70px;
+    font-family: 'Dancing Script', cursive;
+    color: #FDFEFE ;
+    letter-spacing: 7px;
+    font-style: normal;
+    font-weight: 700;
+    padding-top: 10px;
+}
+
+#cont{
+    font-size: 30px;
+    color: #FDFEFE;
+    font-style: normal;
+    font-family: sans-serif;
+    padding-top: 10px;
+}
+
+#tmp2::after{
+   
+    opacity: 1;
+    transform: rotate3d(1, .5, .5, 360deg) scale(1);
+    transition: all ease-in .4s;
+    
+}
+
+#explore{
+    border: 5px solid white;
+    color: #FDFEFE;
+    font-style: normal;
+    padding-top: 10px;
+    margin-top: 25px;
+    background: none; 
+}
+
+#explore:hover{
+    background-color: #FDFEFE ; 
+    color: black;
+    font-weight: bolder;
+    cursor: pointer;
+    transition-duration: 0.5s;
+
+}
+
+/*for registration form*/
+
+
+.container1r{
+    border-radius: 7px;
+    align-items: center;
+    justify-content: center;
+    display: grid;
+    padding: 10px;
+    height: 600px;
+    width: 500px;
+    opacity: 0;
+    visibility: hidden;
+    margin-left: 500px;
+    border: 2px solid black;
+    border-top: 10px solid #2471A3 ;
+    border-left: 10px solid #2471A3 ;
+    font-family: "Montserrat",sans-serif;
+    /* background-image: linear-gradient(to right, #00b4db, #0083b0); */
+    background-image: linear-gradient(#FFD8CB,#F9D29D);
+}
+/* .container1 h1{
+    color: #17202A ;
+    font-size: 40px;
+    text-align: center;
+} */
+
+.container1r h1 {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    color: #6C0667   ;
+    text-align: center;
+    letter-spacing: 5px;
+    text-shadow: 2px 7px 5px rgba(0,0,0,0.3), 
+      0px -4px 10px rgba(255,255,255,0.3);
+  }
+
+
+   
+
+.container1r label{
+    color:black;
+    font-weight: 600;
+    font-size: 25px;
+    text-align: center;
+}
+
+.container1r h3{
+    color: black;
+    font-weight:600;
+    font-size: 25px;
+    text-align: center;
+}
+
+.container1r input{
+    background-color: rgb(204, 209, 209);
+    font-size: 20px;
+    border-radius: 7px;
+    height: 30px;
+}
+
+#username{
+    color: black;
+    font-size: 20px;
+}
+
+#email{
+    color: black ;
+    font-size: 20px;
+}
+
+.container1r select{
+    font-size: 20px;
+    background-color: rgb(204, 209, 209);
+    border-radius: 7px;
+    height: 30px;
+}
+
+#sub{
+    background-image: linear-gradient(#F6EBE6,#AEE1F9);
+    font-size: 20px;
+    color: black;
+    border-radius: 20px;
+    margin-top: 10px;
+    height: 40px;
+    width: 250px;
+    margin-left: 105px;
+}
+
+#sub:hover{
+    cursor: pointer;
+    transition-duration: 1.5s;
+    background-image: linear-gradient(to right, #434343 0%, black 100%);
+    color: white;
+}
+
+@media screen and (max-width:1000px){
+    .container1r{
+        float: left;
+        margin-left: 0;
+        margin-top: 100px;
+    }
+}
+
+/* for reservations list*/
+.viewBox1{
+    height: 650px;
+    width: 600px;
+    background: none;
+    margin-top:  60px;
+    margin-left: 500px;
+  }
+  
+.viewBox1 h1{
+    color: #09F8FC ;
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 40px;
+    text-shadow: 2px 7px 5px rgba(0,0,0,0.3), 
+      0px -4px 10px rgba(255,255,255,0.3);
+}
+  
+.viewBox2{
+    background: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
+margin-top: 20px;
+padding: 20px;
+margin-left: 30px;
+height: 560px;
+width: 550px;
+border-radius: 7px;
+border: 2px solid black;
+overflow: scroll;
+}
+  
+.viewBox2 .reslist li{
+    list-style-type: none;
+    color: white;
+    background: linear-gradient(#28313B,#485461);
+    border: 1px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 3px;
+    font-size: 25px;
+
+}
+  
+.daters{
+float: right;
+}
+
+#desc{
+    background-color:#82E0AA ;
+    border-top: 5px solid white;
+    border-left: 5px solid white;
+}
+
+.exit{
+    position: relative;
+    float: right;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #06D85F;
+}
+.exit:hover{
+    color:red ;
+}
+
+@media screen and (max-width:1000px){
+    .viewBox1{
+        float: left;
+        margin-left: 0;
+        margin-top: 100px;
+    }
+}
