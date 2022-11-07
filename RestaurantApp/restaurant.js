@@ -1,5 +1,4 @@
 //                               Popup global function creation
-localStorage.clear()
 startup();
 function popup(){
     let popup1 = document.createElement("div")
