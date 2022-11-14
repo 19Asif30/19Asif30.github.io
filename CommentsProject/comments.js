@@ -1,3 +1,5 @@
+localStorage.setItem("load", '[]')
+localStorage.setItem("comments", '[]')
 function onlod(){
     let arr = JSON.parse(localStorage.getItem("load"))
     for(let i of arr){
