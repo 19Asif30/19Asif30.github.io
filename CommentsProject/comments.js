@@ -1,12 +1,3 @@
-localStorage.setItem("load", '[]')
-localStorage.setItem("comments", '[]')
-function onlod(){
-    let arr = JSON.parse(localStorage.getItem("load"))
-    for(let i of arr){
-        document.querySelector(".divOuter").innerHTML += i
-    }
-}
-
 function addComment(){
     let user_name = document.getElementById("username")
     let comments_1 = document.getElementById("comments")
@@ -30,12 +21,7 @@ function addComment(){
     arr.push(obj)
     localStorage.setItem("comments", JSON.stringify(arr))
 
-    //for loading
-    let ld = JSON.parse(localStorage.getItem("load"))
-    ld.push(element)
-    localStorage.setItem("load",JSON.stringify(ld))
-    user_name.value = ""
-    comments_1.value = ""
+    
 }
 
 function likefunc(i){
@@ -44,26 +30,13 @@ function likefunc(i){
     no.innerHTML = parseInt(no.innerHTML)+1
     const uname = p.parentNode.children[0].innerHTML
     let arr = JSON.parse(localStorage.getItem("comments"))
-    let currentLike = 0
     for(obj of arr){
         if(obj.name == uname){
             obj.likes += 1
-            currentLike = obj.likes
         }
             
     }
     localStorage.setItem("comments", JSON.stringify(arr))
-
-    //for load function
-    // let load1 = JSON.parse(localStorage.getItem("load"))
-    // for(let i = 0; i < load1.length; i++){
-    //     if(load1[i].substr(78, uname.length) == uname){
-    //         let item = load1[i].slice(load1[i].indexOf('likecount')+11, load1[i].indexOf(' </span>'))
-    //         load1[i] = load1[i].replace(item, currentLike)
-    //         console.log(load1[i])
-    //     }
-    // }
-    // localStorage.setItem("load",JSON.stringify(load1))
 }
 
 function dislikefunc(ob){
@@ -89,13 +62,4 @@ function del(ob){
     }
     localStorage.setItem("comments", JSON.stringify(arr))
 
-    //for loading and unload
-    let load1 = JSON.parse(localStorage.getItem("load"))
-    for(let i = 0; i < load1.length; i++){
-        if(load1[i].substr(78, uname.length) == uname){
-            load1.splice(i,1)
-        }
-    }
-    localStorage.setItem("load",JSON.stringify(load1))
-    ob.parentNode.parentNode.parentNode.remove()
 }
