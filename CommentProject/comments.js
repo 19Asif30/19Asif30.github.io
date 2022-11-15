@@ -1,4 +1,11 @@
-localStorage.setItem("comments",'[]')
+
+// function onlod(){
+//     let arr = JSON.parse(localStorage.getItem("load"))
+//     for(let i of arr){
+//         document.querySelector(".divOuter").innerHTML += i
+//     }
+// }
+
 let comt = JSON.parse(localStorage.getItem("comments"))
 comt.forEach(obj => {
     let element = `<div class="div1 dv">
@@ -9,6 +16,7 @@ comt.forEach(obj => {
                     </div> `
     document.querySelector(".divOuter").innerHTML += element
 });
+
 
 function addComment(){
     let user_name = document.getElementById("username")
@@ -36,6 +44,11 @@ function addComment(){
     }
     arr.push(obj)
     localStorage.setItem("comments", JSON.stringify(arr))
+
+    // //for loading
+    // let ld = JSON.parse(localStorage.getItem("load"))
+    // ld.push(element)
+    // localStorage.setItem("load",JSON.stringify(ld))
     user_name.value = ""
     comments_1.value = ""
 }
@@ -55,6 +68,17 @@ function likefunc(i){
             
     }
     localStorage.setItem("comments", JSON.stringify(arr))
+
+    //for load function
+    // let load1 = JSON.parse(localStorage.getItem("load"))
+    // for(let i = 0; i < load1.length; i++){
+    //     if(load1[i].substr(81, uname.length) == uname){
+    //         let item = load1[i].slice(load1[i].indexOf('likecount')+11, load1[i].indexOf(' </span>'))
+    //         load1[i] = load1[i].replace(item, currentLike)
+    //         console.log(load1[i])
+    //     }
+    // }
+    //localStorage.setItem("load",JSON.stringify(load1))
 }
 
 function dislikefunc(ob){
@@ -72,6 +96,17 @@ function dislikefunc(ob){
             
     }
     localStorage.setItem("comments", JSON.stringify(arr))
+
+    //for load function
+    // let load1 = JSON.parse(localStorage.getItem("load"))
+    // for(let i = 0; i < load1.length; i++){
+    //     if(load1[i].substr(81, uname.length) == uname){
+    //         let item = load1[i].slice(load1[i].indexOf('dislikecount')+14, load1[i].indexOf('  </span>'))
+    //         console.log(item)
+    //         load1[i] = load1[i].replace(item, current_dislike+'.')
+    //     }
+    // }
+    //localStorage.setItem("load",JSON.stringify(load1))
 }
 
 function del(ob){
@@ -83,6 +118,15 @@ function del(ob){
         }
     }
     localStorage.setItem("comments", JSON.stringify(arr))
+
+    //for loading and unload
+    // let load1 = JSON.parse(localStorage.getItem("load"))
+    // for(let i = 0; i < load1.length; i++){
+    //     if(load1[i].substr(81, uname.length) == uname){
+    //         load1.splice(i,1)
+    //     }
+    // }
+    //localStorage.setItem("load",JSON.stringify(load1))
     ob.parentNode.parentNode.parentNode.remove()
 }
 
