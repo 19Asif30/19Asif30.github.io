@@ -1,4 +1,15 @@
 localStorage.setItem("comments",'[]')
+let comt = JSON.parse(localStorage.getItem("comments"))
+comt.forEach(obj => {
+    let element = `<div class="div1 dv">
+                        <p id = "title" class = "divitems">${obj.name}</p>
+                        <p id = "para" class = "divitems">${obj.comment}</p>
+                        <p id = "like" class = "divitems"><span id = "likecount">${obj.likes}</span> likes<i onclick = "likefunc(this);" class = "fa fa-thumbs-up likebtn"></i><span id = "dislikecount">${obj.dislikes}  </span> dislikes<i onclick = "dislikefunc(this);" class = "fa fa-thumbs-down likebtn"></i> <span id = "del"><i onclick = "del(this);" class = "fa fa-trash"></i></span></p>
+                        <p id = "commentedDate">${obj.date}</p>
+                    </div> `
+    document.querySelector(".divOuter").innerHTML += element
+});
+
 function addComment(){
     let user_name = document.getElementById("username")
     let comments_1 = document.getElementById("comments")
@@ -6,19 +17,22 @@ function addComment(){
         alert("User name should not be empty!")
         return false;
     }
-    let element = `<div class="div1">
+    let cmtDate = new Date()
+    cmtDate = `${cmtDate.getFullYear()}-${cmtDate.getMonth()}-${cmtDate.getDay()}`
+    let element = `<div class="div1 dv">
                         <p id = "title" class = "divitems">${user_name.value}</p>
                         <p id = "para" class = "divitems">${comments_1.value}</p>
-                        <p id = "like" class = "divitems"><span>0</span> likes<i onclick = "likefunc(this);" class = "fa fa-thumbs-up likebtn"></i><span>0</span> dislikes<i onclick = "dislikefunc(this);" class = "fa fa-thumbs-down likebtn"></i> <span id = "del"><i onclick = "del(this);" class = "fa fa-trash"></i></span></p>
+                        <p id = "like" class = "divitems"><span id = "likecount">0 </span> likes<i onclick = "likefunc(this);" class = "fa fa-thumbs-up likebtn"></i><span id = "dislikecount">0</span> dislikes<i onclick = "dislikefunc(this);" class = "fa fa-thumbs-down likebtn"></i> <span id = "del"><i onclick = "del(this);" class = "fa fa-trash"></i></span></p>
+                        <p id = "commentedDate">${dateCal(cmtDate)}</p>
                     </div> `
     document.querySelector(".divOuter").innerHTML += element
-
     let arr = JSON.parse(localStorage.getItem("comments"))
     let obj = {
         name: user_name.value,
         comment: comments_1.value,
         likes: 0,
-        dislikes: 0
+        dislikes: 0,
+        date: dateCal(cmtDate)
     }
     arr.push(obj)
     localStorage.setItem("comments", JSON.stringify(arr))
@@ -32,9 +46,13 @@ function likefunc(i){
     no.innerHTML = parseInt(no.innerHTML)+1
     const uname = p.parentNode.children[0].innerHTML
     let arr = JSON.parse(localStorage.getItem("comments"))
+    let currentLike = 0
     for(obj of arr){
-        if(obj.name == uname)
+        if(obj.name == uname){
             obj.likes += 1
+            currentLike = obj.likes
+        }
+            
     }
     localStorage.setItem("comments", JSON.stringify(arr))
 }
@@ -45,9 +63,13 @@ function dislikefunc(ob){
     no.innerHTML = parseInt(no.innerHTML)+1
     const uname = ob.parentNode.parentNode.children[0].innerHTML
     let arr = JSON.parse(localStorage.getItem("comments"))
+    let current_dislike = 0
     for(obj of arr){
-        if(obj.name == uname)
+        if(obj.name == uname){
             obj.dislikes += 1
+            current_dislike = obj.dislikes
+        }
+            
     }
     localStorage.setItem("comments", JSON.stringify(arr))
 }
@@ -62,4 +84,31 @@ function del(ob){
     }
     localStorage.setItem("comments", JSON.stringify(arr))
     ob.parentNode.parentNode.parentNode.remove()
+}
+
+function dateCal(str){
+    let strarr = str.split('-')
+    let months = {
+      01: "January",
+      02: "February",
+      03: "March",
+      04: "April",
+      05: "May",
+      06: "June",
+      07: "July",
+      08: "August",
+      09: "September",
+      10: "October",
+      11: "November",
+      12: "December"
+    }
+    let date = ""
+    for (i in strarr.reverse()) {
+      if (i == 1)
+        date +=(months[strarr[i]])
+      else
+        date+=(strarr[i])
+    
+    }
+    return date
 }
